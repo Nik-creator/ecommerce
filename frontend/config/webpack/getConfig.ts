@@ -15,7 +15,8 @@ export const getConfig = (props: Config): webpack.Configuration & { devServer: a
         template
     }, mode, isDev, port } = props
 
-    console.log({ isDev, port })
+    console.log('template', template)
+
     return {
         mode,
         entry,

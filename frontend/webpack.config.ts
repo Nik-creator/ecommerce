@@ -1,10 +1,11 @@
-import path from 'path';
+import path from 'path'
+
 import { Configuration } from 'webpack';
 import { getConfig } from './config/webpack/getConfig';
 import type { BuildEnv, Config, Paths } from './config/types'
-import { DEFAULT_DEFAULT_MODE } from './config/constants'
+import { DEFAULT_DEFAULT_MODE, DEFAULT_DEV_PORT } from './config/constants'
 
-export default ({ mode: webpackMode }: BuildEnv): Configuration => {
+export default ({ mode: webpackMode, port: webpackPort }: BuildEnv): Configuration => {
     const paths: Paths = {
         entry: path.resolve(__dirname, 'src', 'index.ts'),
         output: path.resolve(__dirname, 'build'),
@@ -16,7 +17,9 @@ export default ({ mode: webpackMode }: BuildEnv): Configuration => {
 
     const config: Config = {
         paths,
-        mode
+        mode,
+        isDev: mode === DEFAULT_DEFAULT_MODE,
+        port: webpackPort || DEFAULT_DEV_PORT
     }
 
     return getConfig(config)

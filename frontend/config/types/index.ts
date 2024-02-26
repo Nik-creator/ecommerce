@@ -10,10 +10,13 @@ type Paths = {
 type Config = {
     paths: Paths
     mode: Configuration['mode']
+    isDev: boolean
+    port: number
 }
 
 type BuildEnv = {
     mode: Configuration['mode']
+    port: number
 }
 
-export { Paths, Config, BuildEnv }
+export type { Paths, Config, BuildEnv }

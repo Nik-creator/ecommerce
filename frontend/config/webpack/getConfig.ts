@@ -7,14 +7,15 @@ import { getPlugins } from './getPlugins';
 
 import type { Config } from '../types';
 
-export const getConfig = (props: Config): webpack.Configuration => {
+export const getConfig = (props: Config): webpack.Configuration & { devServer: any } => {
     const { paths: {
         entry,
         output,
         alias,
         template
-    }, mode } = props
+    }, mode, isDev, port } = props
 
+    console.log({ isDev, port })
     return {
         mode,
         entry,
@@ -23,6 +24,13 @@ export const getConfig = (props: Config): webpack.Configuration => {
         },
         plugins: getPlugins(template),
         resolve: getResolve(alias),
-        output: getOutput(output)
+        output: getOutput(output),
+        devServer: isDev ? {
+            port,
+            open: true,
+            historyApiFallback: {
+                index: '/'
+            }
+        } : undefined
     }
 }

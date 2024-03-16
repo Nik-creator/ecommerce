@@ -1,0 +1,26 @@
+.link {
+    font: var(--font-s)
+}
+
+.primary {
+    color: var(--text-primary)
+}
+
+.secondary {
+    color: var(--text-secondery)
+}
+
+.s {
+    font-size: var(--font-size-s);
+    line-height: var(--font-line-s)
+}
+
+.m {
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-m)
+}
+
+.l {
+    font-size: var(--font-size-l);
+    line-height: var(--font-line-l)
+}

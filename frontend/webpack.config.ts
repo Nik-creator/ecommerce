@@ -10,6 +10,7 @@ export default ({ mode: webpackMode, port: webpackPort }: BuildEnv): Configurati
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: path.resolve(__dirname, 'build'),
         alias: path.resolve(__dirname, 'src'),
+        public: path.resolve(__dirname, 'public'),
         template: path.resolve(__dirname, 'public', 'index.html'),
     }
 

@@ -8,23 +8,21 @@ import { getPlugins } from './getPlugins';
 import type { Config } from '../types';
 
 export const getConfig = (props: Config): webpack.Configuration & { devServer: any } => {
-    const { paths: {
-        entry,
+    const { paths, mode, isDev, port } = props
+
+    const { entry,
         output,
         alias,
-        template
-    }, mode, isDev, port } = props
-
-    console.log('template', template)
+        template } = paths;
 
     return {
         mode,
         entry,
         module: {
-            rules: getLoaders()
+            rules: getLoaders(isDev)
         },
-        plugins: getPlugins(template),
-        resolve: getResolve(alias),
+        plugins: getPlugins(template, isDev),
+        resolve: getResolve(paths),
         output: getOutput(output),
         devServer: isDev ? {
             port,

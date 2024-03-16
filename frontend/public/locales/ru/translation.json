@@ -1,0 +1,12 @@
+{
+    "title": "Тестовый пример текста",
+    "translation": "переключение",
+    "homeLink": "Главная",
+    "cartLink": "Корзина",
+    "changeTheme": "Переключить тему",
+    "changeLang": "изменить язык",
+    "description": {
+        "part1": "To get started, edit <1>src/App.js</1> and save to reload.",
+        "part2": "Switch language between english and german using buttons above."
+    }
+}

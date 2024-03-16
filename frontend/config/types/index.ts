@@ -4,6 +4,7 @@ type Paths = {
     entry: string,
     output: string
     alias: string
+    public: string
     template: string
 }
 
